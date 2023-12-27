@@ -24,9 +24,11 @@ public function get($id) {
     return $this->repo->findOrFail($id);
 }
 
-public function update(array $data, $id){
-    return $this->repo->update($data, $id);
+public function update(array $data, $id) {
+    $this->repo->where('id', $id)->update($data);
+    return $this->repo->findOrFail($id);
 }
+
 public function destroy($id){
     return $this->repo->destroy($id);
 }
