@@ -30,7 +30,14 @@ public function update(array $data, $id) {
 }
 
 public function destroy($id){
-    return $this->repo->destroy($id);
+    $task = $this->repo->find($id);
+
+    if ($task) {
+        $this->repo->destroy($id);
+        return "Deletado com sucesso";
+    }
+
+    return "Item não encontrado para deletar";
 }
 
 }
