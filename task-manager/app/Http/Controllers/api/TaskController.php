@@ -14,10 +14,10 @@ class TaskController {
         $this->taskService = $taskService;
     }
 
-    public function store(array $data) {
-
+    public function store(Request $request)
+    {
+        $data = $request->all();
         return $this->taskService->store($data);
-
     }
 
     public function getList() {
