@@ -19,7 +19,9 @@ public function getList(){
 public function get(array $id){
     return $this->repo->get($id);
 }
-
+public function update(array $data, $id){
+    return $this->repo->update($data, $id);
+}
 
 }
 
