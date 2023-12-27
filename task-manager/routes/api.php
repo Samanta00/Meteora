@@ -12,8 +12,8 @@ Route::group(['middleware' => 'api'], function ($router){
     Route::get('task/view/{id}', [TaskController::class, 'get']);
     Route::get('task', [TaskController::class, 'getList']);
     Route::post('task', [TaskController::class, 'store']);
-    Route::put('users/update/{id}', [TaskController::class, 'update']);
-    Route::delete('users/delete/{id}', [TaskController::class, 'destroy']);
+    Route::put('task/update/{id}', [TaskController::class, 'update']);
+    Route::delete('task/delete/{id}', [TaskController::class, 'destroy']);
     
 
 });
