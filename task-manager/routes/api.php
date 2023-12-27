@@ -9,7 +9,7 @@ Route::group(['middleware' => 'api'], function ($router){
     // Route::post('login', [AuthController::class, 'login']);
     // Route::post('users', [UserController::class, 'index']);
 
-    Route::get('tasks', [TaskController::class, 'index']);
+    Route::get('tasks', [TaskController::class, 'getList']);
     Route::post('tasks', [TaskController::class, 'store']);
 
 });
