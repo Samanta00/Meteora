@@ -22,6 +22,9 @@ public function get(array $id){
 public function update(array $data, $id){
     return $this->repo->update($data, $id);
 }
+public function destroy($id){
+    return $this->repo->destroy($id);
+}
 
 }
 
