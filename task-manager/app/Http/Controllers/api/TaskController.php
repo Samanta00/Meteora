@@ -25,8 +25,7 @@ class TaskController {
         return $this->taskService->getList();
     }
 
-    public function get(array $id) {
-    
+    public function get($id) {
         return $this->taskService->get($id);
     }
 
