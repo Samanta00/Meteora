@@ -10,5 +10,6 @@ Route::group(['middleware' => 'api'], function ($router){
     // Route::post('users', [UserController::class, 'index']);
 
     Route::get('tasks', [TaskController::class, 'index']);
+    Route::post('tasks', [TaskController::class, 'store']);
 
 });
