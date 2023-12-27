@@ -35,4 +35,9 @@ class TaskController {
         return $this->taskService->update($data, $id);
 
     }
+    public function destroy($id) {
+      
+        return $this->taskService->destroy($id);
+ 
+     }
 }
