@@ -9,9 +9,12 @@ public function __construct(Task $model){
     return $this->repo=$model;
 }
 
-public function store(array $data){
-    return $this->repo->store($data);
+public function store(array $data)
+{
+    
+    return $this->repo->create($data);
 }
+
 
 public function getList(){
     return $this->repo->all(); // ou Task::all();
