@@ -19,9 +19,11 @@ public function store(array $data)
 public function getList(){
     return $this->repo->all(); // ou Task::all();
 }
-public function get(array $id){
-    return $this->repo->get($id);
+
+public function get($id) {
+    return $this->repo->findOrFail($id);
 }
+
 public function update(array $data, $id){
     return $this->repo->update($data, $id);
 }
