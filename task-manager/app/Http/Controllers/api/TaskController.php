@@ -5,55 +5,23 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Models\Task;
+use App\Services\TaskService;
 
-class TaskController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return Task::all();
+class TaskController {
+    private $taskService;
+
+    public function __construct(TaskService $taskService) {
+        $this->taskService = $taskService;
     }
 
+    public function store(array $data) {
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        Task::create($request->all());
+        return $this->taskService->store($data);
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+    public function getList() {
+        
+        return $this->taskService->getList();
     }
 }
