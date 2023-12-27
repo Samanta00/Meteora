@@ -29,4 +29,10 @@ class TaskController {
     
         return $this->taskService->get($id);
     }
+
+    public function update($request, $id) {
+        $data = $request->all();
+        return $this->taskService->update($data, $id);
+
+    }
 }
