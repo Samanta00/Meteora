@@ -55,7 +55,7 @@ class TaskService
     }
 
     public function filterBySituacao($situacao){
-        return $this->repo->where('complete', $situacao)->get();
+        return $this->repo->where('completed', $situacao)->get();
     }
     
 }
