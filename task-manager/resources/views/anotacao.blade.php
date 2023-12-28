@@ -189,17 +189,105 @@ function displayTasks(tasks) {
             console.log(`Editar tarefa com ID ${id}`);
         }
 
-        // Função para deletar a tarefa pelo ID
-        function deletarTarefa(id) {
-           
-            console.log(`Deletar tarefa com ID ${id}`);
+        // Função para deletar uma tarefa
+        async function deletarTarefa(taskId) {
+            try {
+                const response = await fetch(`http://127.0.0.1:8000/api/task/delete/${taskId}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    console.log(`Tarefa com ID ${taskId} deletada com sucesso.`);
+                    fetchTasks(); // Atualiza a lista após a remoção da tarefa
+                } else {
+                    console.error(`Erro ao deletar a tarefa com ID ${taskId}.`);
+                }
+            } catch (error) {
+                console.error('Erro ao enviar a requisição:', error);
+            }
         }
 
-        // Função para visualizar a tarefa pelo ID
-        function visualizarPorId(id) {
-           
-            console.log(`Visualizar tarefa com ID ${id}`);
+        // Função para buscar os detalhes de uma tarefa por ID
+async function buscarDetalhesTarefa(taskId) {
+    try {
+        const response = await fetch(`http://127.0.0.1:8000/api/task/view/${taskId}`);
+        if (response.ok) {
+            const taskDetails = await response.json();
+            exibirFormularioEdicao(taskDetails);
+        } else {
+            console.error(`Erro ao buscar os detalhes da tarefa com ID ${taskId}.`);
         }
+    } catch (error) {
+        console.error('Erro ao buscar os detalhes da tarefa:', error);
+    }
+}
+
+// Função para exibir um formulário com os detalhes da tarefa para edição
+function exibirFormularioEdicao(taskDetails) {
+    const formEdicao = document.createElement('form');
+    formEdicao.classList.add('edit-form');
+
+    const titleInput = document.createElement('input');
+    titleInput.setAttribute('type', 'text');
+    titleInput.setAttribute('value', taskDetails.title);
+
+    const descriptionTextarea = document.createElement('textarea');
+    descriptionTextarea.textContent = taskDetails.description;
+
+    const completedCheckbox = document.createElement('input');
+    completedCheckbox.setAttribute('type', 'checkbox');
+    completedCheckbox.checked = taskDetails.completed;
+
+    const submitBtn = document.createElement('button');
+    submitBtn.textContent = 'Salvar';
+
+    formEdicao.append(titleInput, descriptionTextarea, completedCheckbox, submitBtn);
+
+    // Adicionar lógica para submeter os dados atualizados para a API
+    formEdicao.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        // Obter os novos valores do formulário de edição
+        const editedData = {
+            title: titleInput.value,
+            description: descriptionTextarea.value,
+            completed: completedCheckbox.checked
+        };
+
+        try {
+            const response = await fetch(`http://127.0.0.1:8000/api/task/update/${taskDetails.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(editedData)
+            });
+
+            if (response.ok) {
+                console.log(`Tarefa com ID ${taskDetails.id} atualizada com sucesso.`);
+                fetchTasks(); // Atualiza a lista após a edição da tarefa
+            } else {
+                console.error(`Erro ao atualizar a tarefa com ID ${taskDetails.id}.`);
+            }
+            } catch (error) {
+                console.error('Erro ao enviar a requisição:', error);
+            }
+        });
+
+            const taskListContainer = document.getElementById('taskList');
+            taskListContainer.innerHTML = '';
+            taskListContainer.appendChild(formEdicao);
+        }
+
+        // ... (restante do código)
+
+        // Função para editar a tarefa pelo ID
+        function editarTarefa(id) {
+            buscarDetalhesTarefa(id);
+        }
+
+
+
     </script>
 </body>
 </html>
