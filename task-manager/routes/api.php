@@ -15,6 +15,7 @@ Route::group(['middleware' => 'api'], function ($router){
     Route::put('task/update/{id}', [TaskController::class, 'update']);
     Route::delete('task/delete/{id}', [TaskController::class, 'destroy']);
     Route::get('task/search/{title}', [TaskController::class, 'filterbyLembrete']);
+    Route::get('tasks/pendency/{pendency}', [TaskController::class, 'filterBySituacao']);
     
 
 });
