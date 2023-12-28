@@ -87,30 +87,16 @@ class TaskServiceTest extends TestCase
     }
 
     public function test_destroy_task_exists(): void
-{
-    // Criando um mock para a classe Task
-    $taskMock = Mockery::mock(Task::class);
+    {
+        $taskMock = Mockery::mock(Task::class);
+        $taskMock->shouldReceive('find')
+                 ->with(1) 
+                 ->andReturn(new Task(['title' => 'Tarefa 1', 'description' => 'Descrição da Tarefa 1']));
     
-    // Configurando o mock para retornar uma instância de Task (simulando existência)
-    $taskMock->shouldReceive('find')
-             ->with(1) // Supondo que o ID 1 exista
-             ->andReturn(new Task(['title' => 'Tarefa 1', 'description' => 'Descrição da Tarefa 1']));
-    
-    // Configurando o mock para o método delete
-    $taskMock->shouldReceive('delete')
-             ->with(1) // Verificando se o método delete é chamado com o ID correto
-             ->once()  // Garante que o método delete seja chamado apenas uma vez
-             ->andReturn(true); // Simulando o sucesso da exclusão
-    
-    // Criando uma instância do serviço e passando o mock do repositório
-    $taskService = new TaskService($taskMock);
-    
-    // Chamando o método destroy do serviço com o ID específico
-    $result = $taskService->destroy(1); // Supondo o ID 1 para este exemplo
-    
-    // Verificando se a mensagem de retorno é "Deletado com sucesso"
-    $this->assertEquals("Deletado com sucesso", $result);
-}
+        $taskService = new TaskService($taskMock);
+        $result = $taskService->destroy(1); 
+        $this->assertEquals("Deletado com sucesso", $result);
+    }
 
 
     
