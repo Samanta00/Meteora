@@ -1,19 +1,19 @@
 <?php
 namespace App\Services;
+
 use App\Models\Models\Task;
 
+class TaskService {
+    private $repo;
 
-class TaskService{
-private $repo;
-public function __construct(Task $model){
-    return $this->repo=$model;
-}
+    public function __construct(Task $model) {
+        $this->repo = $model;
+    }
 
-public function store(array $data)
-{
-    
-    return $this->repo->create($data);
-}
+    public function store(array $data)
+    {
+        return $this->repo->create($data);
+    }
 
 
 public function getList(){
