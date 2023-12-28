@@ -69,6 +69,9 @@
     <script src="/js/crud/adicionar.js"></script>
     @yield('constent')
     <script src="/js/crud/visualizarList.js"></script>
+    @yield('constent')
+    <script src="/js/crud/deletar.js"></script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('addTaskBtn').addEventListener('click', adicionarTarefas);
@@ -105,23 +108,7 @@
             console.log(`Editar tarefa com ID ${id}`);
         }
 
-        // Função para deletar uma tarefa
-        async function deletarTarefa(taskId) {
-            try {
-                const response = await fetch(`http://127.0.0.1:8000/api/task/delete/${taskId}`, {
-                    method: 'DELETE'
-                });
-
-                if (response.ok) {
-                    console.log(`Tarefa com ID ${taskId} deletada com sucesso.`);
-                    fetchTasks(); // Atualiza a lista após a remoção da tarefa
-                } else {
-                    console.error(`Erro ao deletar a tarefa com ID ${taskId}.`);
-                }
-            } catch (error) {
-                console.error('Erro ao enviar a requisição:', error);
-            }
-        }
+ 
 
         // Função para buscar os detalhes de uma tarefa por ID
         async function buscarDetalhesTarefa(taskId) {
