@@ -5,6 +5,8 @@ namespace Tests\Unit;
 use PHPUnit\Framework\TestCase;
 use App\Models\Models\Task;
 use App\Services\TaskService;
+use Mockery;
+
 
 class TaskServiceTest extends TestCase
 {
@@ -25,6 +27,30 @@ class TaskServiceTest extends TestCase
         // Verifica se o método store retornou uma instância de Task
         $this->assertInstanceOf(Task::class, $storedTask);
     }
+
+    public function test_getList_tasks(): void
+    {
+        // Criando um mock para a classe Task
+        $taskMock = Mockery::mock(Task::class);
+
+        // Simulando o retorno do método all
+        $taskMock->shouldReceive('all')->andReturn([
+            new Task(['title' => 'Tarefa 1', 'description' => 'Descrição da Tarefa 1']),
+            new Task(['title' => 'Tarefa 2', 'description' => 'Descrição da Tarefa 2']),
+          
+        ]);
+
+        $taskService = new TaskService($taskMock);
+        $tasks = $taskService->getList();
+        $this->assertIsArray($tasks);
+
+        foreach ($tasks as $task) {
+            $this->assertInstanceOf(Task::class, $task);
+        }
+    }
+
+ 
+    
 }
 
 
