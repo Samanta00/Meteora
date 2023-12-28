@@ -65,6 +65,27 @@ class TaskServiceTest extends TestCase
         $this->assertInstanceOf(Task::class, $task);
     }
 
+    public function test_update_task(): void
+    {
+        
+        $taskMock = Mockery::mock(Task::class);
+
+        $taskMock->shouldReceive('findOrFail')
+                 ->with(1) 
+                 ->andReturn(new Task(['title' => 'Tarefa 1', 'description' => 'Descrição da Tarefa 1']));
+
+     
+        $taskMock->shouldReceive('where->update')
+                 ->with(['title' => 'Título Atualizado']) 
+                 ->once(); 
+
+      
+        $taskService = new TaskService($taskMock);
+
+        $updatedTask = $taskService->update(['title' => 'Título Atualizado'], 1); 
+        $this->assertInstanceOf(Task::class, $updatedTask);
+    }
+
 
     
  
