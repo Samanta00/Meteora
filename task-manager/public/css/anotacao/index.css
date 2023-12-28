@@ -208,3 +208,63 @@
     background-color: darkred;
   }
   
+ 
+  
+/* Estilos para os formulários de filtro */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filter-form {
+  flex: 1;
+  max-width: calc(33.33% - 20px);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.filter-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.filter-form input[type="text"],
+.filter-form button {
+  width: calc(100% - 16px);
+  padding: 10px;
+  margin-bottom: 14px;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.filter-form input[type="text"]:focus,
+.filter-form button:hover {
+  border-color: #3498db;
+}
+
+.filter-form button {
+  padding: 12px 24px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.filter-form button:hover {
+  background-color: #2980b9;
+}
+
+.filter-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
