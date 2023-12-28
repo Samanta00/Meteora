@@ -18,6 +18,18 @@ async function filtrarPorId() {
 }
 
 
-async function filtrarPorTitulo(){
-    
+async function filtrarPorStatus() {
+    try {
+        const status = document.getElementById('filter-status').value; 
+        console.log(status)
+        const response = await fetch(`http://127.0.0.1:8000/api/task/search/${status}`);
+        if (response.ok) {
+            const tasks = await response.json();
+            displayTasks(tasks);
+        } else {
+            console.error('Erro ao buscar as tarefas por status:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Erro ao buscar as tarefas por status:', error);
+    }
 }
