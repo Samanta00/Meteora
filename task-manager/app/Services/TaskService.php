@@ -33,12 +33,13 @@ public function destroy($id){
     $task = $this->repo->find($id);
 
     if ($task) {
-        $this->repo->destroy($id);
+        $task->delete(); // Usar o método delete() no modelo
         return "Deletado com sucesso";
     }
 
     return "Item não encontrado para deletar";
 }
+
 
 }
 
