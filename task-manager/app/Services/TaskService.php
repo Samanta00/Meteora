@@ -40,6 +40,10 @@ public function destroy($id){
     return "Item não encontrado para deletar";
 }
 
+public function filterbyTitle($title){
+    
+}
+
 
 }
 
