@@ -50,6 +50,13 @@ class TaskController {
      
          return response()->json($tasks);
      }
+
+     public function filterBySituacao(Request $request){
+        $situacao= $request->input('completed');
+        $tasks=$this->taskService->filterBySituacao($situacao);
+
+        return response()->json($tasks);
+     }
      
      
      
