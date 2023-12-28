@@ -39,4 +39,8 @@ class TaskController {
         return $this->taskService->destroy($id);
  
      }
+
+     public function filterbyTitle(Request $request){
+
+     }
 }
