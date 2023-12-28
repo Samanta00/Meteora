@@ -49,8 +49,8 @@
 
                 <form class="filter-form" id="filterByStatusForm">
                     <label for="filter-status">Filtrar por Status:</label>
-                    <input type="text" id="filter-Status" placeholder="Status da Tarefa">
-                    <button type="button" id="filterByStatusBtn">Filtrar</button>
+                    <input type="text" id="filter-status" placeholder="Status da Tarefa">
+                    <button type="button" id="filterByStatusBtn" onclick="filtrarPorStatus()">Filtrar</button>
                 </form>
 
                 <form class="filter-form" id="filterByPendencyForm">
