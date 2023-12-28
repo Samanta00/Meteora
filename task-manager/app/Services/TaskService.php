@@ -53,5 +53,9 @@ class TaskService
     {
         return $this->repo->where('status', $lembrete)->get();
     }
+
+    public function filterBySituacao($situacao){
+        return $this->repo->where('complete', $situacao)->get();
+    }
     
 }
