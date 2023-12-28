@@ -47,10 +47,10 @@
                     <button type="button" id="filterByIdBtn">Filtrar</button>
                 </form>
 
-                <form class="filter-form" id="filterByTitleForm">
-                    <label for="filter-title">Filtrar por Título:</label>
-                    <input type="text" id="filter-title" placeholder="Título da Tarefa">
-                    <button type="button" id="filterByTitleBtn">Filtrar</button>
+                <form class="filter-form" id="filterByStatusForm">
+                    <label for="filter-status">Filtrar por Status:</label>
+                    <input type="text" id="filter-Status" placeholder="Status da Tarefa">
+                    <button type="button" id="filterByStatusBtn">Filtrar</button>
                 </form>
 
                 <form class="filter-form" id="filterByPendencyForm">
