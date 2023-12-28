@@ -46,6 +46,14 @@
                 <button type="button" id="filterByIdBtn">Filtrar</button>
             </form>
 
+            <form class="task-id-form">
+                <label for="task-id">Filtrar por Título:</label>
+                <input type="text" id="filter-id" placeholder="ID da Tarefa">
+                <button type="button" id="filterByIdBtn">Filtrar</button>
+            </form>
+
+            
+
             <div class="task-list" id="taskList">
                 <div class="cart-item">
                     <div class="item-actions">
