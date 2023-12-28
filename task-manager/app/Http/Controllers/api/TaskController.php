@@ -41,6 +41,9 @@ class TaskController {
      }
 
      public function filterbyTitle(Request $request){
+        $title=$request->input('title');
+        $tasks = $this->taskService->filterByTitle($title);
+        return view('task.index', ['tasks' => $tasks]);
 
      }
 }
