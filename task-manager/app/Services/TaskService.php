@@ -41,7 +41,7 @@ public function destroy($id){
 }
 
 public function filterbyTitle($title){
-    
+    return $this->repo->where('title', 'like', '%' . $title . '%')->get();
 }
 
 
