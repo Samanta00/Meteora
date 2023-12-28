@@ -5,12 +5,16 @@ async function adicionarTarefas(event) {
     const title = document.getElementById('task-title').value;
     const description = document.getElementById('task-description').value;
     const completed = document.getElementById('task-completed').checked;
+    const statusElement = document.getElementById('task-status');
+    const status = statusElement.value;
 
     const data = {
         title: title,
         description: description,
-        completed: completed
+        completed: completed,
+        status: status
     };
+
 
     try {
         const response = await fetch('http://127.0.0.1:8000/api/task', {
@@ -23,7 +27,7 @@ async function adicionarTarefas(event) {
 
         if (response.ok) {
             console.log('Tarefa criada com sucesso!');
-            // Aqui você pode adicionar lógica para atualizar a interface
+    
         } else {
             console.error('Erro ao criar a tarefa.');
         }
