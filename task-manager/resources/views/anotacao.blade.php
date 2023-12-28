@@ -38,25 +38,27 @@
 
 
         <!-- Lista de tarefas existentes -->
-        <div >
+        <div>
             <h3>Tarefas Salvas</h3>
-            <form class="task-id-form">
-                <label for="task-id">Filtrar por Código de tarefa:</label>
-                <input type="text" id="filter-id" placeholder="ID da Tarefa">
-                <button type="button" id="filterByIdBtn">Filtrar</button>
-            </form>
+            <div class="filter-container">
+                <form class="filter-form" id="filterByIdForm">
+                    <label for="filter-code">Filtrar por Código de tarefa:</label>
+                    <input type="text" id="filter-code" placeholder="ID da Tarefa">
+                    <button type="button" id="filterByIdBtn">Filtrar</button>
+                </form>
 
-            <form class="task-id-form">
-                <label for="task-id">Filtrar por Título:</label>
-                <input type="text" id="filter-id" placeholder="ID da Tarefa">
-                <button type="button" id="filterByIdBtn">Filtrar</button>
-            </form>
+                <form class="filter-form" id="filterByTitleForm">
+                    <label for="filter-title">Filtrar por Título:</label>
+                    <input type="text" id="filter-title" placeholder="Título da Tarefa">
+                    <button type="button" id="filterByTitleBtn">Filtrar</button>
+                </form>
 
-            <form class="task-id-form">
-                <label for="task-id">Filtrar por Pendência:</label>
-                <input type="text" id="filter-id" placeholder="ID da Tarefa">
-                <button type="button" id="filterByIdBtn">Filtrar</button>
-            </form>
+                <form class="filter-form" id="filterByPendencyForm">
+                    <label for="filter-pendency">Filtrar por Pendência:</label>
+                    <input type="text" id="filter-pendency" placeholder="Pendência da Tarefa">
+                    <button type="button" id="filterByPendencyBtn">Filtrar</button>
+                </form>
+            </div>
 
 
 
@@ -94,4 +96,5 @@
         });
     </script>
 </body>
+
 </html>
