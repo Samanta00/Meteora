@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Models\Task;
 use App\Services\TaskService;
 
+// aqui se faz as lógicas para as requisições
+
 class TaskController {
     private $taskService;
 
@@ -40,10 +42,15 @@ class TaskController {
  
      }
 
-     public function filterbyTitle(Request $request){
-        $title=$request->input('title');
-        $tasks = $this->taskService->filterByTitle($title);
-        return view('task.index', ['tasks' => $tasks]);
+     public function filterByLembrete(Request $request)
+     {
+         $status = $request->input('status');
+         $tasks = $this->taskService->filterByLembrete($status);
 
+     
+         return response()->json($tasks);
      }
+     
+     
+     
 }
