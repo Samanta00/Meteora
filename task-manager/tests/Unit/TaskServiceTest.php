@@ -49,6 +49,24 @@ class TaskServiceTest extends TestCase
         }
     }
 
+    public function test_get_task_by_id(): void
+    {
+      
+        $taskMock = Mockery::mock(Task::class);
+        $taskMock->shouldReceive('findOrFail')
+                 ->with(1) 
+                 ->andReturn(new Task(['title' => 'Tarefa 1', 'description' => 'Descrição da Tarefa 1']));
+
+
+        $taskService = new TaskService($taskMock);
+
+        $task = $taskService->get(1); 
+
+        $this->assertInstanceOf(Task::class, $task);
+    }
+
+
+    
  
     
 }
