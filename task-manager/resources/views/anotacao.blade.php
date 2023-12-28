@@ -92,7 +92,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('addTaskBtn').addEventListener('click', adicionarTarefas);
             document.getElementById('filterByIdBtn').addEventListener('click', fetchTasks);
-            document.getElementById('filterByTitleBtn').addEventListener('click', fetchTasks);
+            document.getElementById('filterByStatusBtn').addEventListener('click', fetchTasks);
             document.getElementById('filterByPendencyBtn').addEventListener('click', fetchTasks);
             fetchTasks();
         });
