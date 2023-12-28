@@ -34,16 +34,21 @@
             <button type="button" id="filterByIdBtn">Filtrar</button>
         </form>
 
-        <div class="cart-items">
-            <div *ngFor="let product of cartItems" class="cart-item">
-            <div class="item-actions">
-                <button class="edit-button" (click)="showEditForm(product)">Editar</button>
-                <button class="remove-button" (click)="removeItemFromCart(product.id)">Remover</button>
-            </div>
-            <p class="product-name">tarefa1</p>
-            <p class="product-category"> descricao</p>
-            </div>    
+        <div class="task-list" id="taskList"> 
+                <div class="cart-item">
+                    <div class="item-actions">
+                        <button class="edit-button" >Editar</button>
+                        <button class="remove-button">Remover</button>
+                    </div>
+                    <div class="task">
+                        <h3>Título da Tarefa</h3>
+                        <p>Descrição da Tarefa</p>
+                        <span class="task-status">Pendente</span>
+                    </div>
+                </div>
+          
         </div>
+
            
         </div>
     </div>
@@ -91,52 +96,72 @@
         }
 
         
-        async function fetchTasks() {
-           
+
+        // Função para buscar as tarefas da API
+async function fetchTasks() {
+    try {
+        const response = await fetch('http://127.0.0.1:8000/api/task');
+        if (response.ok) {
+            const tasks = await response.json();
+            displayTasks(tasks);
+        } else {
+            console.error('Erro ao buscar as tarefas:', response.statusText);
         }
+    } catch (error) {
+        console.error('Erro ao buscar as tarefas:', error);
+    }
+}
 
-        // Função para exibir as tarefas na lista
-        function displayTasks(tasks) {
-            const taskList = document.getElementById('taskList');
-            taskList.innerHTML = ''; // Limpa a lista antes de adicionar as tarefas
+// Função para exibir as tarefas na lista
+function displayTasks(tasks) {
+    const taskList = document.getElementById('taskList');
+    taskList.innerHTML = ''; // Limpa a lista antes de adicionar as tarefas
 
-            tasks.forEach(task => {
-                const taskElement = document.createElement('div');
-                taskElement.classList.add('task');
+    tasks.forEach(task => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
 
-                const title = document.createElement('h3');
-                title.textContent = task.title;
+        const itemActions = document.createElement('div');
+        itemActions.classList.add('item-actions');
 
-                const description = document.createElement('p');
-                description.textContent = task.description;
+        const editBtn = document.createElement('button');
+        editBtn.classList.add('edit-button');
+        editBtn.textContent = 'Editar';
+        editBtn.addEventListener('click', () => editarTarefa(task.id)); // Chama a função para editar a tarefa
 
-                const status = document.createElement('span');
-                status.classList.add('task-status');
-                status.textContent = task.completed ? 'Concluída' : 'Pendente';
+        const removeBtn = document.createElement('button');
+        removeBtn.classList.add('remove-button');
+        removeBtn.textContent = 'Remover';
+        removeBtn.addEventListener('click', () => deletarTarefa(task.id)); // Chama a função para remover a tarefa
 
-                const actions = document.createElement('div');
-                actions.classList.add('task-actions');
+        itemActions.appendChild(editBtn);
+        itemActions.appendChild(removeBtn);
 
-                const editBtn = document.createElement('button');
-                editBtn.classList.add('edit-btn');
-                editBtn.textContent = 'Editar';
-                editBtn.addEventListener('click', () => editarTarefa(task.id)); // Chama a função para editar a tarefa
+        const taskElement = document.createElement('div');
+        taskElement.classList.add('task');
 
-                const deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('delete-btn');
-                deleteBtn.textContent = 'Excluir';
-                deleteBtn.addEventListener('click', () => deletarTarefa(task.id)); // Chama a função para deletar a tarefa
+        const title = document.createElement('h3');
+        title.textContent = task.title;
 
-                const viewByIdBtn = document.createElement('button');
-                viewByIdBtn.classList.add('view-id-btn');
-                viewByIdBtn.textContent = 'Visualizar por ID';
-                viewByIdBtn.addEventListener('click', () => visualizarPorId(task.id)); // Chama a função para visualizar por ID
+        const description = document.createElement('p');
+        description.textContent = task.description;
 
-                actions.append(editBtn, deleteBtn, viewByIdBtn);
-                taskElement.append(title, description, status, actions);
-                taskList.appendChild(taskElement);
-            });
-        }
+        const status = document.createElement('span');
+        status.classList.add('task-status');
+        status.textContent = task.completed ? 'Concluída' : 'Pendente';
+
+        taskElement.appendChild(title);
+        taskElement.appendChild(description);
+        taskElement.appendChild(status);
+
+        cartItem.appendChild(itemActions);
+        cartItem.appendChild(taskElement);
+
+        taskList.appendChild(cartItem);
+    });
+}
+
+   
 
         // Função para filtrar por ID
         async function filtrarPorId() {
