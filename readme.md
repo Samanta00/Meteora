@@ -1,4 +1,4 @@
-# Bonnars
+# Meteora
 
 **Descrição:** O projeto "Meteora" é um gerenciador de tarefas simples projetado para lembrar ações do dia a dia. Ele permite aos usuários organizar e acompanhar suas tarefas, facilitando o gerenciamento das atividades diárias.
 
@@ -47,11 +47,11 @@
 - **Localmente inicie com http://127.0.0.1:8000**
 - **Após isso coloque um dos caminhos**
 
-*** Filtro por Lembrete
+***Filtro por Lembrete
 - **/api/task/search/{lembrete}  [POST]**
 
-*** Filtro por Lembrete
+***Filtro por Lembrete
 - **/api/task/pendency/{pendency}  [POST]**
 
-- 
+
 
