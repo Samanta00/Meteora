@@ -26,7 +26,9 @@ async function adicionarTarefas(event) {
         });
 
         if (response.ok) {
+            location.reload();
             console.log('Tarefa criada com sucesso!');
+            
     
         } else {
             console.error('Erro ao criar a tarefa.');

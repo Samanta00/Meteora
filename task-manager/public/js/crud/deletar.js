@@ -6,6 +6,7 @@
                 });
 
                 if (response.ok) {
+                    location.reload();
                     console.log(`Tarefa com ID ${taskId} deletada com sucesso.`);
                     fetchTasks(); // Atualiza a lista após a remoção da tarefa
                 } else {

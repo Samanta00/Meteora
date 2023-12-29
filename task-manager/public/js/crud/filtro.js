@@ -74,6 +74,18 @@ function displayFilteredTasks() {
         const itemActions = document.createElement('div');
         itemActions.classList.add('item-actions');
 
+        const editBtn = document.createElement('button');
+        editBtn.classList.add('edit-button');
+        editBtn.textContent = 'Editar';
+        editBtn.addEventListener('click', () => editarTarefa(task.id)); // Chama a função para editar a tarefa
+
+        const removeBtn = document.createElement('button');
+        removeBtn.classList.add('remove-button');
+        removeBtn.textContent = 'Remover';
+        removeBtn.addEventListener('click', () => deletarTarefa(task.id)); // Chama a função para remover a tarefa
+
+        itemActions.appendChild(editBtn);
+        itemActions.appendChild(removeBtn);
 
         const taskElement = document.createElement('div');
         taskElement.classList.add('task');

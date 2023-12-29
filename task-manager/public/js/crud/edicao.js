@@ -31,6 +31,7 @@ function exibirFormularioEdicao(taskDetails) {
             });
 
             if (response.ok) {
+                location.reload();
                 console.log(`Tarefa com ID ${taskDetails.id} atualizada com sucesso.`);
                 fetchTasks();
             } else {
@@ -56,6 +57,7 @@ async function buscarDetalhesTarefa(taskId) {
         if (response.ok) {
             const taskDetails = await response.json();
             exibirFormularioEdicao(taskDetails);
+            
         } else {
             console.error(`Erro ao buscar os detalhes da tarefa com ID ${taskId}.`);
         }
