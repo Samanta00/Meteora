@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\Models\Task;
 
-// aqui se faz a lógica para os valores vindos do banco de dados
+// aqui se faz a lógica para os valores vindos da Model
 
 class TaskService
 {
