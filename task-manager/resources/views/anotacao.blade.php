@@ -45,6 +45,7 @@
                 <form class="filter-form" id="filterByStatusForm">
                     <label for="filter-status">Filtrar por Status:</label>
                     <select id="filter-status">
+                        <option value="">Selecionar Status</option>
                         <option value="atrasado">Atrasado</option>
                         <option value="lembrete">Lembrete</option>
                         <option value="comemoracao">Comemoração</option>
@@ -57,6 +58,7 @@
                 <form class="filter-form" id="filterByPendencyForm">
                     <label for="filter-pendency">Filtrar por Pendência:</label>
                     <select id="filter-pendency">
+                        <option value="">Selecionar Pendência</option>
                         <option value="false">Pendente</option>
                         <option value="true">Concluído</option>
                     </select>
