@@ -117,6 +117,10 @@
 ### Atenção
 #### Todas as Rotas foram testadas utilizando testes unitários
 
+##### Para Verificar no terminal digite: php artisan test
+##### Você pode encontrar esse teste por esse local do projeto
+![image](https://github.com/Samanta00/Meteora/assets/80990432/55d07857-5e13-44b6-9a31-1e8313003c23)
+
 
 
 
