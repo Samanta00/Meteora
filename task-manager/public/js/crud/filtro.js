@@ -46,7 +46,13 @@ async function filtrarPorStatus() {
 
 
 async function filtrarPorPendencia(){
-    
+    try{
+        const pendencia=document.getElementsByClassName('filter-pendency').value;
+        const bodyData = { pendencia };
+
+        console.log(bodyData);
+    }
+
 }
 
 function displayFilteredTasks() {
