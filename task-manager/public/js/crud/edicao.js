@@ -1,25 +1,34 @@
 function exibirFormularioEdicao(taskDetails) {
-    const formEdicao = document.createElement('form');
-    formEdicao.classList.add('edit-form');
-
-    const createEl = (type, props = {}) => Object.assign(document.createElement(type), props);
-
-    const appendEls = (parent, elements) => elements.forEach(element => parent.appendChild(element));
-
-    const [titleInput, descriptionTextarea, completedCheckbox, submitBtn] = [
-        createEl('input', { type: 'text', value: taskDetails.title }),
-        createEl('textarea', { value: taskDetails.description }),
-        createEl('input', { type: 'checkbox', checked: taskDetails.completed }),
-        createEl('button', { textContent: 'Salvar' })
-    ];
-
-    appendEls(formEdicao, [titleInput, descriptionTextarea, completedCheckbox, submitBtn]);
+        const formEdicao = document.createElement('form');
+        formEdicao.classList.add('edit-form');
+    
+        const createEl = (type, props = {}) => Object.assign(document.createElement(type), props);
+    
+        const appendEls = (parent, elements) => elements.forEach(element => parent.appendChild(element));
+    
+        const [titleInput, descriptionTextarea, statusSelect, completedCheckbox, submitBtn] = [
+            createEl('input', { type: 'text', value: taskDetails.title }),
+            createEl('textarea', { value: taskDetails.description }),
+            createEl('select', {}),
+            createEl('input', { type: 'checkbox', checked: taskDetails.completed }),
+            createEl('button', { textContent: 'Salvar' })
+        ];
+    
+        const statusOptions = ['Selecione o Status', 'Atrasado', 'Lembrete', 'Comemoração', 'Agendamento', 'Importante'];
+        statusOptions.forEach(option => {
+            const opt = createEl('option', { value: option.toLowerCase(), textContent: option });
+            statusSelect.appendChild(opt);
+        });
+    
+        appendEls(formEdicao, [titleInput, descriptionTextarea, statusSelect, completedCheckbox, submitBtn]);
+    
 
     formEdicao.addEventListener('submit', async (event) => {
         event.preventDefault();
         const editedData = {
             title: titleInput.value,
             description: descriptionTextarea.value,
+            
             completed: completedCheckbox.checked
         };
 
