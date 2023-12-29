@@ -44,7 +44,13 @@
 
                 <form class="filter-form" id="filterByStatusForm">
                     <label for="filter-status">Filtrar por Status:</label>
-                    <input type="text" id="filter-status" placeholder="Status da Tarefa">
+                    <select id="filter-status">
+                        <option value="atrasado">Atrasado</option>
+                        <option value="lembrete">Lembrete</option>
+                        <option value="comemoracao">Comemoração</option>
+                        <option value="agendamento">Agendamento</option>
+                        <option value="importante">Importante</option>
+                    </select>
                     <button type="button" id="filterByStatusBtn" onclick="filtrarPorStatus()">Filtrar</button>
                 </form>
 
@@ -91,7 +97,7 @@
             document.getElementById('addTaskBtn').addEventListener('click', adicionarTarefas);
             document.getElementById('filterByStatusBtn').addEventListener('click', filtrarPorStatus);
             document.getElementById('filterByPendencyBtn').addEventListener('click', filtrarPorPendencia);
-            fetchTasks(); 
+            fetchTasks();
         });
     </script>
 </body>
