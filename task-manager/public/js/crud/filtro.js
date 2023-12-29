@@ -20,12 +20,21 @@ async function filtrarPorId() {
 
 async function filtrarPorStatus() {
     try {
-        const status = document.getElementById('filter-status').value; 
-        console.log(status)
-        const response = await fetch(`http://127.0.0.1:8000/api/task/search/${status}`);
+        const status = document.getElementById('filter-status').value;
+        const bodyData = { status };
+
+        const response = await fetch(`http://127.0.0.1:8000/api/task/search/${status}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(bodyData)
+        });
+
         if (response.ok) {
             const tasks = await response.json();
             displayTasks(tasks);
+            console.log(tasks);
         } else {
             console.error('Erro ao buscar as tarefas por status:', response.statusText);
         }
@@ -33,3 +42,5 @@ async function filtrarPorStatus() {
         console.error('Erro ao buscar as tarefas por status:', error);
     }
 }
+
+
