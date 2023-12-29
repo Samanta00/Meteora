@@ -1,11 +1,15 @@
 function exibirFormularioEdicao(taskDetails) {
+        //cria um formulário
         const formEdicao = document.createElement('form');
         formEdicao.classList.add('edit-form');
     
+        // Função para criar elementos HTML com propriedades
         const createEl = (type, props = {}) => Object.assign(document.createElement(type), props);
     
+        // Função para anexar elementos a um elemento pai
         const appendEls = (parent, elements) => elements.forEach(element => parent.appendChild(element));
     
+        // Criação de campos do formulário usando destructuring
         const [titleInput, descriptionTextarea, statusSelect, completedCheckbox, submitBtn] = [
             createEl('input', { type: 'text', value: taskDetails.title }),
             createEl('textarea', { 
@@ -17,8 +21,10 @@ function exibirFormularioEdicao(taskDetails) {
             createEl('button', { textContent: 'Salvar' })
         ];
         
-    
+        //lista com todas opções de lembrete do formulário
         const statusOptions = ['Selecione o Status', 'Atrasado', 'Lembrete', 'Comemoração', 'Agendamento', 'Importante'];
+     
+        //para cada valor percorrido na lista vai ser atribuido um elemento option
         statusOptions.forEach(option => {
             const opt = createEl('option', { value: option.toLowerCase(), textContent: option });
             statusSelect.appendChild(opt);
@@ -38,6 +44,8 @@ function exibirFormularioEdicao(taskDetails) {
 
         appendEls(formEdicao, [submitBtn]);
 
+
+    //adicionando todos os valores em um objeto só
     formEdicao.addEventListener('submit', async (event) => {
         event.preventDefault();
         const editedData = {
@@ -48,6 +56,7 @@ function exibirFormularioEdicao(taskDetails) {
             
         };
 
+        //enviando todos os resultados para a api
         try {
             const response = await fetch(`http://127.0.0.1:8000/api/task/update/${taskDetails.id}`, {
                 method: 'PUT',
