@@ -20,6 +20,8 @@ async function filtrarPorStatus() {
         if (response.ok) {
             filteredTasks = await response.json();
             displayFilteredTasks(); 
+            document.getElementById('filter-pendency').value = '';
+            
         } else {
             console.error('Erro ao buscar as tarefas por status:', response.statusText);
         }
@@ -47,10 +49,10 @@ async function filtrarPorPendencia() {
             });
     
             if (response.ok) {
-                const filteredTasks = await response.json();
-                console.log(filteredTasks); 
-    
-                displayFilteredTasks(filteredTasks);
+                filteredTasks = await response.json();
+                displayFilteredTasks(); 
+                document.getElementById('filter-status').value = '';
+
             } else {
                 console.error('Erro ao buscar as tarefas por status:', response.statusText);
             }
