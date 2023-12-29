@@ -32,8 +32,9 @@ function exibirFormularioEdicao(taskDetails) {
         const editedData = {
             title: titleInput.value,
             description: descriptionTextarea.value,
-            
+            status:statusSelect.value,
             completed: completedCheckbox.checked
+            
         };
 
         try {
