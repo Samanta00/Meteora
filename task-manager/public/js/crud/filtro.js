@@ -18,6 +18,8 @@ async function filtrarPorId() {
 }
 
 
+let filteredTasks = []; // Variável para armazenar os resultados filtrados
+
 async function filtrarPorStatus() {
     try {
         const status = document.getElementById('filter-status').value;
@@ -32,15 +34,56 @@ async function filtrarPorStatus() {
         });
 
         if (response.ok) {
-            const tasks = await response.json();
-            displayTasks(tasks);
-            console.log(tasks);
+            filteredTasks = await response.json();
+            displayFilteredTasks(); // Mostra os resultados filtrados
         } else {
             console.error('Erro ao buscar as tarefas por status:', response.statusText);
         }
     } catch (error) {
         console.error('Erro ao buscar as tarefas por status:', error);
     }
+}
+
+
+async function filtrarPorPendencia(){
+    
+}
+
+function displayFilteredTasks() {
+    const taskList = document.getElementById('taskList');
+    taskList.innerHTML = ''; // Limpa o conteúdo atual
+
+    filteredTasks.forEach(task => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+
+        const itemActions = document.createElement('div');
+        itemActions.classList.add('item-actions');
+
+        // ... Criação dos botões editar e remover
+
+        const taskElement = document.createElement('div');
+        taskElement.classList.add('task');
+
+        const title = document.createElement('h3');
+        title.textContent = task.title;
+
+        const description = document.createElement('p');
+        description.textContent = task.description;
+
+        const status = document.createElement('span');
+        status.classList.add('task-status');
+        status.textContent = task.completed ? 'Concluída' : 'Pendente';
+
+        taskElement.appendChild(title);
+        taskElement.appendChild(description);
+        taskElement.appendChild(status);
+
+        cartItem.appendChild(itemActions);
+        cartItem.appendChild(taskElement);
+
+        taskList.appendChild(cartItem);
+    });
 }
 
 
