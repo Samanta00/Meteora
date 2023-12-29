@@ -38,12 +38,13 @@
 - **Seu Projeto vai iniciar sem a execução do banco de dados então dentro da pasta task-manager crie um arquivo chamado .env**
 - **Dentro dele configure o banco de dados ao seu gosto, esse projeto foi feito utilizando PostgreSQL então você pode utilizar algo semelhante ao meu exemplo:**
 
- DB_CONNECTION=pgsql
- DB_HOST=snuffleupagus.db.elephantsql.com
- DB_PORT=5432
- DB_DATABASE=dllpzhjv
- DB_USERNAME=dllpzhjv
- DB_PASSWORD=gAiRTM_M_R_svn4kUOHesFkSLkIm1Izu
+
+### DB_CONNECTION=pgsql
+### DB_HOST=snuffleupagus.db.elephantsql.com
+### DB_PORT=5432
+### DB_DATABASE=dllpzhjv
+### DB_USERNAME=dllpzhjv
+### DB_PASSWORD=gAiRTM_M_R_svn4kUOHesFkSLkIm1Izu
 
 - **No exemplo estou utilizando PostgreSQL em um Servidor online**
   
