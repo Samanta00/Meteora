@@ -47,11 +47,18 @@ async function filtrarPorStatus() {
 
 async function filtrarPorPendencia(){
     try{
-        const pendencia=document.getElementsByClassName('filter-pendency').value;
+        const pendencia=document.getElementById('filter-pendency').value;
         const bodyData = { pendencia };
+        console.log('teste134')
 
         console.log(bodyData);
+        
     }
+    catch (error) {
+        console.error(error);
+    }
+
+
 
 }
 
