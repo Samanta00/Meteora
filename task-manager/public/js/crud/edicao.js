@@ -8,11 +8,15 @@ function exibirFormularioEdicao(taskDetails) {
     
         const [titleInput, descriptionTextarea, statusSelect, completedCheckbox, submitBtn] = [
             createEl('input', { type: 'text', value: taskDetails.title }),
-            createEl('textarea', { value: taskDetails.description }),
+            createEl('textarea', { 
+                value: taskDetails.description,
+                style: 'resize: none' 
+            }),
             createEl('select', {}),
             createEl('input', { type: 'checkbox', checked: taskDetails.completed }),
             createEl('button', { textContent: 'Salvar' })
         ];
+        
     
         const statusOptions = ['Selecione o Status', 'Atrasado', 'Lembrete', 'Comemoração', 'Agendamento', 'Importante'];
         statusOptions.forEach(option => {
