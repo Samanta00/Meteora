@@ -46,30 +46,34 @@ async function filtrarPorStatus() {
 
 
 async function filtrarPorPendencia() {
-    try {
-        const selectElement = document.getElementById('filter-pendency');
-        const pendencia = selectElement.value === 'true';
-        console.log(pendencia)
-        const response = await fetch(`http://127.0.0.1:8000/api/task/pendency/${pendencia}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify( pendencia )
-            
-        });
-
-        console.log(response)
-        
-        if (response.ok) {
-            const filteredTasks = await response.json();
-            displayFilteredTasks(filteredTasks); 
-        } else {
-            console.error('Erro ao buscar as tarefas por status:', response.statusText);
+        try {
+            const selectElement = document.getElementById('filter-pendency');
+            const pendencia = selectElement.value === 'true';
+    
+            const bodyData = { "completed": pendencia };
+    
+            const apiUrl = `http://127.0.0.1:8000/api/task/pendency/${pendencia}`;
+    
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(bodyData)
+            });
+    
+            if (response.ok) {
+                const filteredTasks = await response.json();
+                console.log(filteredTasks); 
+    
+                displayFilteredTasks(filteredTasks);
+            } else {
+                console.error('Erro ao buscar as tarefas por status:', response.statusText);
+            }
+        } catch (error) {
+            console.error(error);
         }
-    } catch (error) {
-        console.error(error);
-    }
+    
 }
 
 
