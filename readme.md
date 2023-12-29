@@ -47,10 +47,10 @@
 - **Localmente inicie com http://127.0.0.1:8000**
 - **Após isso coloque um dos caminhos**
 
-***Filtro por Lembrete
+#### Filtro por Lembrete
 - **/api/task/search/{lembrete}  [POST]**
 
-***Filtro por Lembrete
+#### Filtro por Lembrete
 - **/api/task/pendency/{pendency}  [POST]**
 
 
