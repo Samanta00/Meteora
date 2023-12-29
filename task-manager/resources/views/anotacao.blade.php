@@ -55,7 +55,10 @@
 
                 <form class="filter-form" id="filterByPendencyForm">
                     <label for="filter-pendency">Filtrar por Pendência:</label>
-                    <input type="text" id="filter-pendency" placeholder="Pendência da Tarefa">
+                    <select id="filter-pendency">
+                        <option value="false">Pendente</option>
+                        <option value="true">Concluído</option>
+                    </select>
                     <button type="button" id="filterByPendencyBtn" onclick="filtrarPorPendencia()">Filtrar</button>
                 </form>
             </div>
