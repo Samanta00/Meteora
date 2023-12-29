@@ -24,14 +24,16 @@ function exibirFormularioEdicao(taskDetails) {
             statusSelect.appendChild(opt);
         });
     
-        
+        //lista de todos os titulos para os campos
         const labels = ['Título:', 'Descrição:', 'Status:', 'Tarefa Concluída:'];
-        const elements = [titleInput, descriptionTextarea, statusSelect, completedCheckbox];
 
+        //lista com os objetos referentes aos inputs
+        const elementsInput = [titleInput, descriptionTextarea, statusSelect, completedCheckbox];
 
+        //laço para atribuir titulo para cada indice percorrido no objeto
         labels.forEach((tituloLabel, indice)=>{
-            const label=createEl('label',{htmlFor:`edit-${elements[indice].id}`, textContent: tituloLabel })
-            appendEls(formEdicao, [label, elements[indice]]);
+            const label=createEl('label',{htmlFor:`edit-${elementsInput[indice].id}`, textContent: tituloLabel })
+            appendEls(formEdicao, [label, elementsInput[indice]]);
         })
 
         appendEls(formEdicao, [submitBtn]);
