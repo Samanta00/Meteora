@@ -56,6 +56,12 @@ async function filtrarPorPendencia(){
             },
             body: JSON.stringify(bodyData)
         });
+        if (response.ok) {
+            filteredTasks = await response.json();
+            displayFilteredTasks(); // Mostra os resultados filtrados
+        } else {
+            console.error('Erro ao buscar as tarefas por status:', response.statusText);
+        }
 
    
         
