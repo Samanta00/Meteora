@@ -3,9 +3,6 @@
 **Descrição:** O projeto "Meteora" é um gerenciador de tarefas simples projetado para lembrar ações do dia a dia. Ele permite aos usuários organizar e acompanhar suas tarefas, facilitando o gerenciamento das atividades diárias.
 
 
-## Link para abrir o projeto apenas com o frontend online pelo vercel: https://bonnars.vercel.app/
-
-
 
 ## Como foi desenvolvido?
 
@@ -78,7 +75,7 @@
 - **Para acessar a rota de visualizar todas as tasks você faz o seguinte pelo seu Postman ou Insomnia**
 ![image](https://github.com/Samanta00/Meteora/assets/80990432/4d4efdf8-ef69-4d7f-bff9-15c096d599e8)
 
-- **Para acessar a rota Adicionar uma nova task você faz o seguinte pelo seu Postman ou Insomnia**
+- **Para acessar a rota de Adicionar uma nova task você faz o seguinte pelo seu Postman ou Insomnia**
  ![image](https://github.com/Samanta00/Meteora/assets/80990432/5f02498c-4ffe-4acf-abd8-27d5104be622)
 
 - **Para acessar a rota de visualizar uma tasks em específico você faz o seguinte pelo seu Postman ou Insomnia**
