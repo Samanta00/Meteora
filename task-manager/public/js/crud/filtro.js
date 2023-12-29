@@ -1,13 +1,12 @@
 
 
 
-let filteredTasks = []; // Variável para armazenar os resultados filtrados
+let filteredTasks = []; 
 
 async function filtrarPorStatus() {
     try {
-        const status = document.getElementById('filter-status').value;
+        const status = document.getElementById('filter-status').value; 
         const bodyData = { status };
-
         const response = await fetch(`http://127.0.0.1:8000/api/task/search/${status}`, {
             method: 'POST',
             headers: {
@@ -15,10 +14,12 @@ async function filtrarPorStatus() {
             },
             body: JSON.stringify(bodyData)
         });
+        console.log(response)
+        console.log(status)
 
         if (response.ok) {
             filteredTasks = await response.json();
-            displayFilteredTasks(); // Mostra os resultados filtrados
+            displayFilteredTasks(); 
         } else {
             console.error('Erro ao buscar as tarefas por status:', response.statusText);
         }
