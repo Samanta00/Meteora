@@ -3,9 +3,6 @@
 **Descrição:** O projeto "Meteora" é um gerenciador de tarefas simples projetado para lembrar ações do dia a dia. Ele permite aos usuários organizar e acompanhar suas tarefas, facilitando o gerenciamento das atividades diárias.
 
 
-## Link para abrir o projeto apenas com o frontend online pelo vercel: https://bonnars.vercel.app/
-
-
 
 ## Como foi desenvolvido?
 
