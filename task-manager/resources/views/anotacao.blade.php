@@ -41,11 +41,6 @@
         <div>
             <h3>Tarefas Salvas</h3>
             <div class="filter-container">
-                <form class="filter-form" id="filterByIdForm">
-                    <label for="filter-code">Filtrar por Código de tarefa:</label>
-                    <input type="text" id="filter-code" placeholder="ID da Tarefa">
-                    <button type="button" id="filterByIdBtn">Filtrar</button>
-                </form>
 
                 <form class="filter-form" id="filterByStatusForm">
                     <label for="filter-status">Filtrar por Status:</label>
