@@ -46,10 +46,9 @@ class TaskController {
      {
          $status = $request->input('status');
          $tasks = $this->taskService->filterByLembrete($status);
-
-     
          return response()->json($tasks);
      }
+     
 
      public function filterBySituacao(Request $request){
         $situacao= $request->input('completed');
