@@ -89,10 +89,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('addTaskBtn').addEventListener('click', adicionarTarefas);
-            document.getElementById('filterByIdBtn').addEventListener('click', fetchTasks);
-            document.getElementById('filterByStatusBtn').addEventListener('click', fetchTasks);
-            document.getElementById('filterByPendencyBtn').addEventListener('click', fetchTasks);
-            fetchTasks();
+            document.getElementById('filterByStatusBtn').addEventListener('click', filtrarPorStatus);
+            document.getElementById('filterByPendencyBtn').addEventListener('click', filtrarPorPendencia);
+            fetchTasks(); 
         });
     </script>
 </body>
