@@ -7,6 +7,7 @@
     <title>Task Manager</title>
     <link rel="stylesheet" href="styles.css">
     <link href="/css/anotacao/index.css" rel="stylesheet">
+    <link href="/css/formEditTasks/style.css" rel="stylesheet">
 </head>
 
 <body>
