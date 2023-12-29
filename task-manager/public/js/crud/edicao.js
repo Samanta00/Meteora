@@ -24,8 +24,17 @@ function exibirFormularioEdicao(taskDetails) {
             statusSelect.appendChild(opt);
         });
     
-        appendEls(formEdicao, [titleInput, descriptionTextarea, statusSelect, completedCheckbox, submitBtn]);
-    
+        
+        const labels = ['Título:', 'Descrição:', 'Status:', 'Tarefa Concluída:'];
+        const elements = [titleInput, descriptionTextarea, statusSelect, completedCheckbox];
+
+
+        labels.forEach((tituloLabel, indice)=>{
+            const label=createEl('label',{htmlFor:`edit-${elements[indice].id}`, textContent: tituloLabel })
+            appendEls(formEdicao, [label, elements[indice]]);
+        })
+
+        appendEls(formEdicao, [submitBtn]);
 
     formEdicao.addEventListener('submit', async (event) => {
         event.preventDefault();
