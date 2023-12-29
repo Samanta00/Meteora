@@ -49,9 +49,15 @@ async function filtrarPorPendencia(){
     try{
         const pendencia=document.getElementById('filter-pendency').value;
         const bodyData = { pendencia };
-        console.log('teste134')
+        const response = await fetch(`http://127.0.0.1:8000/api/tasks/pendency/${pendencia}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(bodyData)
+        });
 
-        console.log(bodyData);
+   
         
     }
     catch (error) {
