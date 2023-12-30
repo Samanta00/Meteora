@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//rotas do frontend
+
 Route::get('/', function () {
     return view('anotacao');
 });
